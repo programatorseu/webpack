@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("webpack 4"),alert("WebPack 5")})();

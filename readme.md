@@ -11,7 +11,7 @@ popularized by Instagram announcement and microsoft
 - handle resources and assets 
 - support code spliting and async bunlding 
 
-## Getting Started
+## 1. Getting Started
 ```bash
 npm init -y
 npm install webpack webpack-cli --save-dev
@@ -43,3 +43,46 @@ export function test()
     console.log('hej');
 }
 ```
+
+it will generated distributed file into `.dist/main.js`
+
+
+## 2. Configuration
+version 4 does not require but supports config file  - more efficient
+
+`./webpack.config.js`
+
+```js
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};
+```
+
+## 3. Modules are
+ webpack transpiles code to browser 
+
+`./src/Notification.js` 
+
+ ```js
+ function shoutOut(msg) {
+    alert(msg);
+}
+function log(msg) {
+    console.log(msg);
+}
+
+export{shoutOut, log};
+```
+
+`./src/index.js`
+```js
+import {log, shoutOut} from "./Notification";
+log("webpack 4");
+shoutOut("WebPack 5");
+``` 
